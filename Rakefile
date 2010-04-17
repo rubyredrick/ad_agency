@@ -2,11 +2,16 @@ require 'rubygems'
 require 'rake'
 
 begin
-  require 'jeweler'
+  require 'lib/ad_agency'
   Jeweler::Tasks.new do |gem|
     gem.name = "ad_agency"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{An extension to Jeweler for generating announcements}
+    gem.description = %Q{
+One of the facilities I missed in moving from hoe to jeweler was the ability to easily
+announce new versions of gems.
+
+ad_agency fills that hole.
+    }
     gem.email = "rick.denatale@gmail.com"
     gem.homepage = "http://github.com/rubyredrick/ad_agency"
     gem.authors = ["Rick DeNatale"]
@@ -14,6 +19,7 @@ begin
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
+  Jeweler::AdAgencyTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end

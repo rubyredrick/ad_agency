@@ -1,16 +1,67 @@
 = ad_agency
 
-Description goes here.
+With the transition from RubyForge to Gemcutter, I along with many other rubyists made the transition from using hoe to jeweler.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+One of the features of hoe I missed was the ability to produce announcement emails when releasing gems.
+
+Ad_agency is a simple gem to help fill that hole.
+
+
+== Usage
+
+In your rake file for a jeweler project you should have something like:
+
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    # ruby code to initialize your gem spec
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+end
+
+Add the following after the line requiring jeweler
+require 'lib/ad_agency'
+
+or you can replace that line since ad_agency requires jeweler itself
+
+To produce an announcement run the rake task:
+
+   rake advertize:email_body -s
+  
+Running this task prints an announcement to stdout, the -s option supresses noise from rake.
+
+I don't (yet?) support actually sending the email, for my use (on a Mac) I pipe the output into pbcopy and paste it as an email body in my email client.
+
+== Output
+
+The output is in the following form:
+
+Announcing <<gem name>> version <<major>>.<<minor>>.<<patch>>
+<<gem summary>>
+
+<<gem description>>
+
+Changes:
+
+=== <<major>>.<<minor>>.<<patch>> <<comments>>
+  <<comments>>
+
+=== <<major>>.<<minor>>.<<patch>> <<comments>>
+   <<comments>>
+ ...
+------ End of output -----
+
+<<gem name>>, <<gem summary>>, and <<gem description>> are those set by the gem specification in your RAKEFILE.
+
+<<major>>, <<minor>>, and <<patch>> are set from the contents of your VERSION file, which is managed by the jeweler version rake tasks.
+
+If you have a History.txt file in your project it will be used to produce the changes section.  It expects the sections of the History.txt file to be separated by lines which match the regular expression:
+
+   /^=+\s\d+\.d+\.d+/
+   
+Or one or more initial equal signs followed by a major.minor.patch version number.  The History.txt file is copied to the announcement up to but not including the first separator line with a different major and minor version from the current version.
 
 == Copyright
 
