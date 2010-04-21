@@ -31,6 +31,11 @@ class Jeweler
         task :email_body do
           AdAgency::PrintShop.print_ad(jeweler.gemspec)
         end
+        
+        desc "generate History.txt from the git log"
+        task :gen_history do
+          AdAgency::History.new.generate
+        end
       end
     end
   end
