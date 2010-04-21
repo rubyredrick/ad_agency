@@ -21,7 +21,7 @@ class Jeweler
     end
 
     def define
-      namespace :advertize do
+      namespace :advertise do
         desc "generate an announcement email body"
         task :email_body do
           spec = jeweler.gemspec

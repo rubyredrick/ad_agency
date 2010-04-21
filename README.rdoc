@@ -28,7 +28,7 @@ or you can replace that line since ad_agency requires jeweler itself
 
 To produce an announcement run the rake task:
 
-   rake advertize:email_body -s
+   rake advertise:email_body -s
   
 Running this task prints an announcement to stdout, the -s option supresses noise from rake.
 
