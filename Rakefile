@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 
 begin
-  require 'ad_agency'
+  require 'lib/ad_agency'
   Jeweler::Tasks.new do |gem|
     gem.name = "ad_agency"
     gem.summary = %Q{An extension to Jeweler for generating announcements}

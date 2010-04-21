@@ -2,6 +2,11 @@ require 'rake'
 require 'rake/tasklib'
 require 'jeweler'
 
+module AdAgency
+end
+
+require 'lib/ad_agency/print_shop'
+
 class Jeweler
   # Rake tasks for announcing a Jeweler gem.
   #
@@ -24,24 +29,7 @@ class Jeweler
       namespace :advertise do
         desc "generate an announcement email body"
         task :email_body do
-          spec = jeweler.gemspec
-          version = File.readlines("VERSION").first.chomp
-          maj_min = version[/^\d+\.\d+/]
-          puts "Announcing #{spec.name} version #{version}"
-          puts spec.summary
-          puts
-          puts spec.description
-          puts
-          if File.exist?("History.txt")
-            puts "Changes:"
-            puts
-            File.readlines("History.txt").each do |line|
-              if line =~ /^=+\s+(\d+\.\d+)\./
-                break unless $1 == maj_min
-              end
-              puts line
-            end
-          end
+          AdAgency::PrintShop.print_ad(jeweler.gemspec)
         end
       end
     end

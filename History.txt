@@ -1,2 +1,2 @@
-=== 0.1.0 Initial Release
+=== v0.1.0 Initial Release
   Basic generation of announce email - see README.rdoc
