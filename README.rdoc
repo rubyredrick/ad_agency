@@ -26,6 +26,26 @@ require 'lib/ad_agency'
 
 or you can replace that line since ad_agency requires jeweler itself
 
+=== Updating History.txt from your git log
+
+To  regenerate your History.txt file from your git log run
+
+   rake advertise:gen_history 
+   
+This will produce a history file from your git commit history, in reverse chronological order
+
+The commit matching each git tag will be preceded by a line like this
+
+=== <tag> <date>
+
+In addition if a tag for the version in the VERSION file doesn't exist, the History file will start as if the tag
+v<version> existed.
+
+This allows the history file to reflect what it will be if rake release were issued next, since jeweler tags the
+the commit this way.
+
+=== Generating an announcement
+
 To produce an announcement run the rake task:
 
    rake advertise:email_body -s
