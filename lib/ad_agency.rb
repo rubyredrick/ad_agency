@@ -32,10 +32,12 @@ class Jeweler
         task :email_body do
           AdAgency::PrintShop.print_ad(jeweler.gemspec)
         end
-        
+
         desc "generate History.txt from the git log"
         task :gen_history do
-          AdAgency::History.new.generate
+          File.open(File.expand_path(File.dirname(__FILE__) + "../../History.txt"), 'w') do |hist_file|
+            AdAgency::History.new.generate(hist_file)
+          end
         end
       end
     end

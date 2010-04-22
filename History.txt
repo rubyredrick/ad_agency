@@ -1,2 +1,13 @@
-=== v0.1.0 Initial Release
-  Basic generation of announce email - see README.rdoc
+=== v0.1.1 2010-04-21
+   history file generator now writes History.txt 
+   generate tag for untagged changes from HISTORY 
+   Version bump to 0.1.1 
+   added history file generator task 
+   refactor for specability 
+   fixed spelling of task name 
+=== v0.1.0 2010-04-17
+   change own rakefile to use gem 
+   Add documentation, rename raketask 
+   Version bump to 0.1.0 
+   Version bump to 0.0.0 
+   Initial commit to ad_agency. 
