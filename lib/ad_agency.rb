@@ -6,6 +6,7 @@ module AdAgency
 end
 
 require 'lib/ad_agency/print_shop'
+require 'lib/ad_agency/history'
 
 class Jeweler
   # Rake tasks for announcing a Jeweler gem.

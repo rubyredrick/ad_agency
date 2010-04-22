@@ -33,6 +33,8 @@ describe "History" do
       @output = StringIO.new
       @it.stub(:git_tags).and_return(["v0.8.7"])
       @it.stub(:git_log).and_return([])
+      @it.stub(:get_current_version).and_return("0.8.8")
+      Date.stub(:today).and_return(Date.parse("20100421"))
     end
         
     it "should produce a map of commits to tags" do

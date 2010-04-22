@@ -1,3 +1,4 @@
+=== v0.8.8 2010-04-21
    change rakefile to use ad_agency 
 === v0.8.7 2010-04-16
    Regenerated gemspec for version 0.8.7 
