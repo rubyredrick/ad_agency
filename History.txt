@@ -1,4 +1,8 @@
+=== v0.1.2 2010-04-21
+   Version bump to 0.1.2 
+   update README 
 === v0.1.1 2010-04-21
+   update history file again 
    fix merge problem 
    history file generator now writes History.txt 
    history file generator now writes History.txt 
