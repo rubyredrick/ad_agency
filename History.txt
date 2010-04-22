@@ -1,4 +1,6 @@
 === v0.1.1 2010-04-21
+   fix merge problem 
+   history file generator now writes History.txt 
    history file generator now writes History.txt 
    generate tag for untagged changes from HISTORY 
    Version bump to 0.1.1 
